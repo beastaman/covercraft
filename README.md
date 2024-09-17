@@ -2,7 +2,7 @@
 
 Built with the Next.js 14 App Router, Postgres, TypeScript, Tailwind & Kinde Auth
 
-![Project Image]([https://github.com/beastaman/covercraft/blob/main/public/cover%20craft.png])
+![Project Image](https://github.com/beastaman/covercraft/blob/main/public/cover%20craft.png)
 
 ## Features
 
