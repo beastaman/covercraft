@@ -25,6 +25,27 @@ export const createCheckoutSession = async ({
   if (!user) {
     throw new Error('You need to be logged in')
   }
+  
+  // Check if the email is null and handle accordingly
+  if (!user.email) {
+    throw new Error('User email is required')
+  }
+
+
+  // **Add this check to ensure user exists in the database**
+  let dbUser = await db.user.findUnique({
+    where: { id: user.id },
+  })
+
+  if (!dbUser) {
+    // If user doesn't exist in the database, you can create a new user
+    dbUser = await db.user.create({
+      data: {
+        id: user.id,
+        email: user.email,
+      },
+    })
+  }
 
   const { finish, material } = configuration
 
@@ -68,7 +89,7 @@ export const createCheckoutSession = async ({
   const stripeSession = await stripe.checkout.sessions.create({
     success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
     cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/configure/preview?id=${configuration.id}`,
-    payment_method_types: ['card', 'paypal'],
+    payment_method_types: ['card'],
     mode: 'payment',
     shipping_address_collection: { allowed_countries: ['DE', 'US'] },
     metadata: {
