@@ -2,7 +2,7 @@
 
 Built with the Next.js 14 App Router, Postgres, TypeScript, Tailwind & Kinde Auth
 
-![Project Image](https://github.com/joschan21/casecobra/blob/master/public/thumbnail.png)
+![Project Image](https://github.com/beastaman/covercraft/blob/main/public/cover%20craft.png)
 
 ## Features
 
@@ -25,7 +25,7 @@ Built with the Next.js 14 App Router, Postgres, TypeScript, Tailwind & Kinde Aut
 To get started with this project, run
 
 ```bash
-  git clone https://github.com/joschan21/casecobra.git
+  git clone https://github.com/beastaman/covercraft.git
 ```
 
 and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
